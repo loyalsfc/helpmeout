@@ -71,19 +71,19 @@ function Page() {
                                 <ul className='px-2 flex flex-col gap-10 text-sm sm:text-lg md:text-xl'>
                                     <li className='text-title-color font-medium flex'>
                                         <span className='block w-12 sm:w-20'>0.01</span>
-                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the </p>
+                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the </p>
                                     </li>
                                     <li className='text-title-color font-medium flex'>
                                         <span className='block w-12 sm:w-20'>0.15</span>
-                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the </p>
+                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the </p>
                                     </li>
                                     <li className='text-title-color font-medium flex'>
                                         <span className='block w-12 sm:w-20'>0.30</span>
-                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the </p>
+                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the </p>
                                     </li>
                                     <li className='text-[#CFCFCF] font-medium flex'>
                                         <span className='block w-12 sm:w-20'>1.00</span>
-                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate "Marketplace" in the left-hand menu or at the top of the </p>
+                                        <p className='flex-1'>First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the First step. Open Facebook on your desktop or mobile device and locate &quot;Marketplace&quot; in the left-hand menu or at the top of the </p>
                                     </li>
                                 </ul>
                                 <div className='w-1.5 shrink-0 bg-[#F5F5F5] rounded'><div className='h-1/2 w-1 mx-auto rounded bg-[#D9D9D9]'/></div>
