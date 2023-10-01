@@ -18,6 +18,12 @@
   .video{
     @apply px-3 lg:px-4 py-3 lg:py-4  rounded-xl sm:rounded-3xl overflow-hidden border border-primary-100/60 bg-[#FBFBFB]/50
   }
+  .btn{
+    @apply py-3 px-8 bg-primary-main rounded-lg text-base font-medium text-[#F9F9FF]
+  }
+  .error{
+    @apply border border-red-500
+  }
 }
 
 :root {
