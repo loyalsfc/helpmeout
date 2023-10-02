@@ -6,7 +6,7 @@ import Image from 'next/image'
 import ShareButton from '../share-button/share-button'
 import Modal from './modal'
 
-function FIlePage(videoId) {
+function FIlePage({videoId}) {
     const [showModal, setShowModal] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [email, setEmail] = useState('');
