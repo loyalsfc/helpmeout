@@ -10,7 +10,8 @@ function FIlePage() {
     const [showModal, setShowModal] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [email, setEmail] = useState('');
-    const formRef = useRef(null)
+    const formRef = useRef(null);
+    const videoRef = useRef(null);
     const videoUrl = "https://www.helpmeout/Untitled_Video_20232509"
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -22,6 +23,10 @@ function FIlePage() {
         } else {
             formRef.current.classList.replace('border-primary-50', 'border-red-500')
         }
+    }
+
+    const toggleVideo = () =>{
+        videoRef.current.play();
     }
 
 
@@ -90,14 +95,18 @@ function FIlePage() {
 
                         <section className='md:border-l border-l-[#939393] md:pl-5 lg:pl-10'>
                             <div className='border border-primary-400 rounded-lg overflow-hidden'>
-                                <video poster='/video-frame.png' className='object-cover aspect-video'>
+                                <video 
+                                    ref={videoRef} 
+                                    src="https://yms.pythonanywhere.com/get_video/d8a68899-2642-4cde-8088-d140712c89ec" 
+                                    className='object-cover aspect-video'
+                                >
 
                                 </video>
                                 <div className='h-1 bg-[#DFE0E1]'><div className='h-full w-1/6 bg-primary-main rounded-3xl'/></div>
                                 <div className='px-4 lg:px-10 py-4 flex items-center justify-between'>
                                     <span className='text-[#939393] font-medium text-2xl font-inter'>0:30/3:00</span>
                                     <div className='flex gap-4   lg:gap-10'>
-                                        <button className='flex flex-col gap-1.5 items-center text-title-color text-xs font-medium'>
+                                        <button onClick={toggleVideo} className='flex flex-col gap-1.5 items-center text-title-color text-xs font-medium'>
                                             <Play />
                                             Play
                                         </button>
