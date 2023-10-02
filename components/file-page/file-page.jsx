@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
-import { Edit, Play, Settings, Volume } from '../icons/icons'
+import React, { useEffect, useRef, useState } from 'react'
+import { Edit, Pause, Play, Settings, Volume } from '../icons/icons'
 import Image from 'next/image'
 import ShareButton from '../share-button/share-button'
 import Modal from './modal'
@@ -10,6 +10,10 @@ function FIlePage({videoId}) {
     const [showModal, setShowModal] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [email, setEmail] = useState('');
+    const [videoTime, setVideoTime] = useState(0);
+    const [totalTime, setTotalTime] = useState(0);
+    const [isVideoPaused, setVideoPaused] = useState(true)
+    const [currentTime, setCurrentTime] = useState(0)
     const formRef = useRef(null);
     const videoRef = useRef(null);
     const videoUrl = "https://www.helpmeout/Untitled_Video_20232509"
@@ -26,9 +30,34 @@ function FIlePage({videoId}) {
     }
 
     const toggleVideo = () =>{
-        videoRef.current.play();
+        if(videoRef.current.paused){
+            videoRef.current.play();
+            setVideoPaused(false);
+        } else {
+            videoRef.current.pause();
+            setVideoPaused(true);
+        }
     }
 
+    useEffect(()=>{
+        videoRef.current.onloadeddata = () => {
+            console.log(videoRef.current.duration);
+        }
+    },[])
+
+    useEffect(()=>{
+        videoRef.current.ontimeupdate = () => {
+            setCurrentTime(Math.floor(videoRef.current.currentTime))
+            setVideoTime(videoRef.current.currentTime / totalTime) * 100;
+        }
+    },[totalTime])
+
+    function formatDuration(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds;
+        return `${minutes}:${formattedSeconds}`;
+    }
 
     const copyToClipboard = (e) => {
         navigator.clipboard.writeText(videoUrl);
@@ -102,12 +131,18 @@ function FIlePage({videoId}) {
                                 >
 
                                 </video>
-                                <div className='h-1 bg-[#DFE0E1]'><div className='h-full w-1/6 bg-primary-main rounded-3xl'/></div>
+                                <div className='h-1 bg-[#DFE0E1]'>
+                                    <div style={{width: `${videoTime}%`}} className='h-full w-1/6 bg-primary-main rounded-3xl'/>
+                                </div>
                                 <div className='px-4 lg:px-10 py-4 flex items-center justify-between'>
-                                    <span className='text-[#939393] font-medium text-2xl font-inter'>0:30/3:00</span>
+                                    <span 
+                                        className='text-[#939393] font-medium text-2xl font-inter'
+                                    >
+                                        {formatDuration(currentTime)}/3:30
+                                    </span>
                                     <div className='flex gap-4   lg:gap-10'>
                                         <button onClick={toggleVideo} className='flex flex-col gap-1.5 items-center text-title-color text-xs font-medium'>
-                                            <Play />
+                                            {isVideoPaused ? <Play /> : <Pause/>}
                                             Play
                                         </button>
                                         <button className='flex flex-col gap-1.5 items-center text-title-color text-xs font-medium'>
