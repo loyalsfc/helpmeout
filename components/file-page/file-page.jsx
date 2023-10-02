@@ -6,7 +6,7 @@ import Image from 'next/image'
 import ShareButton from '../share-button/share-button'
 import Modal from './modal'
 
-function FIlePage() {
+function FIlePage(videoId) {
     const [showModal, setShowModal] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [email, setEmail] = useState('');
@@ -97,7 +97,7 @@ function FIlePage() {
                             <div className='border border-primary-400 rounded-lg overflow-hidden'>
                                 <video 
                                     ref={videoRef} 
-                                    src="https://yms.pythonanywhere.com/get_video/d8a68899-2642-4cde-8088-d140712c89ec" 
+                                    src={`https://yms.pythonanywhere.com/get_video/${videoId}`} 
                                     className='object-cover aspect-video'
                                 >
 
